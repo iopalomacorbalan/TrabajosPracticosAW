@@ -20,7 +20,7 @@ Estas herramientas nos permitieron crear un servidor simple pero funcional.
 
 Creamos un servidor con Express que responde a distintas rutas. La principal es:
 
-* `/api/properties`
+* `/api/propiedades`
 
 Desde esta ruta se pueden obtener todas las propiedades disponibles.
 
@@ -48,7 +48,7 @@ Para aplicar los filtros usamos `.filter()` sobre los datos que llegan de la API
 
 El funcionamiento es así:
 
-1. El usuario hace una petición (por ejemplo `/api/properties`).
+1. El usuario hace una petición (por ejemplo `/api/propiedades`).
 2. El servidor recibe esa petición.
 3. Se buscan los datos en la API externa.
 4. Se aplican los filtros si hay.
