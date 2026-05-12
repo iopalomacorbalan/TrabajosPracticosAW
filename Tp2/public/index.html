@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frenkel & Llopis Propiedades — Encontrá tu próximo hogar</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo">
+        <img src="imagenes/logo_frenkel_paletaB_1.svg" alt="Logo">
+        <span>Frenkel & Llopis Propiedades</span>
+      </a>
+      <nav>
+        <a href="index.html" class="active">Inicio</a>
+        <a href="propiedades.html">Propiedades</a>
+        <a href="nosotros.html">Nosotros</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <h1>Tu próximo hogar te está esperando</h1>
+      <p>Más de 20 años conectando personas con la casa de sus sueños.</p>
+      <a href="propiedades.html" class="btn">Ver propiedades</a>
+    </div>
+  </section>
+
+  <section class="container section">
+    <h2>Propiedades destacadas</h2>
+    <div id="destacadas" class="grid"></div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Frenkel & Llopis Propiedades — Todos los derechos reservados</p>
+    </div>
+  </footer>
+
+  <script src="js/propiedades.js"></script>
+  <script>
+    // En el home solo mostramos las primeras 3 propiedades como "destacadas"
+    cargarPropiedades("destacadas", { limit: 3 });
+  </script>
+</body>
+</html>

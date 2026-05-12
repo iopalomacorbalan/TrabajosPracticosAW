@@ -1,7 +1,11 @@
 import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 const PUERTO = 3000;
+
+app.use(express.static("public"));
 
 
 const API_URL = "https://69f00887112e1b968e2526cd.mockapi.io/api/v1/propiedades";
