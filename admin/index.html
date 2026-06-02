@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Administración — Frenkel & Llopis</title>
+</head>
+<body>
+  <h1>Panel de Administración</h1>
+
+  <!-- Formulario para agregar/editar -->
+  <h2>Nueva propiedad</h2>
+  <div>
+    <input type="text" id="title" placeholder="Título">
+    <input type="text" id="type" placeholder="Tipo (casa, depto)">
+    <input type="text" id="operation" placeholder="Operación (venta, alquiler)">
+    <input type="number" id="price" placeholder="Precio">
+    <input type="text" id="address" placeholder="Dirección">
+    <input type="number" id="bedrooms" placeholder="Dormitorios">
+    <input type="number" id="bathrooms" placeholder="Baños">
+    <input type="number" id="size" placeholder="Metros cuadrados">
+    <input type="text" id="image" placeholder="URL imagen">
+    <button onclick="crear()">Agregar</button>
+  </div>
+
+  <!-- Lista de propiedades -->
+  <h2>Propiedades</h2>
+  <div id="lista"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
