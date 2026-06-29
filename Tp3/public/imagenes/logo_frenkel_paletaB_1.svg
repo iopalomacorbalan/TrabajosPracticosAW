@@ -1,0 +1,48 @@
+<svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="anillo" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f07d3a"/>
+      <stop offset="50%" stop-color="#e03a1e"/>
+      <stop offset="100%" stop-color="#1a2d3d"/>
+    </linearGradient>
+    <radialGradient id="fondo" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3a7ca5"/>
+      <stop offset="100%" stop-color="#1a2d3d"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Fondo exterior azul marino -->
+  <circle cx="100" cy="100" r="100" fill="#1a2d3d"/>
+
+  <!-- Anillo gradiente fino -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="url(#anillo)" stroke-width="5"/>
+
+  <!-- Círculo interior azul petróleo -->
+  <circle cx="100" cy="100" r="89" fill="url(#fondo)"/>
+
+  <!-- Casita solo líneas blancas delicadas -->
+  <polyline points="75,50 100,30 125,50" fill="none" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+  <rect x="82" y="50" width="36" height="18" fill="none" stroke="white" stroke-width="1.5"/>
+
+  <!-- Línea fina separadora arriba -->
+  <line x1="55" y1="76" x2="145" y2="76" stroke="#f07d3a" stroke-width="0.6" opacity="0.6"/>
+
+  <!-- Frenkel en azul claro -->
+  <text x="100" y="96" text-anchor="middle" fill="#e8f4fb"
+        font-family="Georgia, serif" font-size="22" font-weight="bold" letter-spacing="1">Frenkel</text>
+
+  <!-- & en naranja -->
+  <text x="100" y="113" text-anchor="middle" fill="#f07d3a"
+        font-family="Georgia, serif" font-size="13" font-style="italic">&amp;</text>
+
+  <!-- Llopis en azul claro -->
+  <text x="100" y="133" text-anchor="middle" fill="#e8f4fb"
+        font-family="Georgia, serif" font-size="22" font-weight="bold" letter-spacing="1">Llopis</text>
+
+  <!-- Línea fina separadora abajo -->
+  <line x1="55" y1="140" x2="145" y2="140" stroke="#f07d3a" stroke-width="0.6" opacity="0.6"/>
+
+  <!-- PROPIEDADES -->
+  <text x="100" y="155" text-anchor="middle" fill="#3a7ca5"
+        font-family="Arial, sans-serif" font-size="7.5" letter-spacing="3.5">PROPIEDADES</text>
+</svg>

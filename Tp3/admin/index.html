@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administración — Frenkel & Llopis</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container header-inner">
+      <div>
+        <h1>Panel de Administración</h1>
+        <p>Frenkel &amp; Llopis Propiedades — Gestión de propiedades</p>
+      </div>
+      <button class="btn btn-sm btn-sec" onclick="cerrarSesion()">Cerrar sesión</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Mensajes para el usuario (éxito / error) -->
+    <div id="mensaje" class="mensaje"></div>
+
+    <!-- Formulario para agregar/editar -->
+    <section class="panel">
+      <h2 id="form-titulo">Nueva propiedad</h2>
+      <div class="form-grid">
+        <input type="text" id="title" placeholder="Título">
+        <input type="text" id="type" placeholder="Tipo (casa, depto)">
+        <input type="text" id="operation" placeholder="Operación (venta, alquiler)">
+        <input type="number" id="price" placeholder="Precio">
+        <input type="text" id="address" placeholder="Dirección">
+        <input type="number" id="bedrooms" placeholder="Dormitorios">
+        <input type="number" id="bathrooms" placeholder="Baños">
+        <input type="number" id="size" placeholder="Metros cuadrados">
+        <div class="file-input-wrap">
+          <label for="image">Imagen</label>
+          <input type="file" id="image" accept="image/jpeg,image/png,image/webp">
+          <span id="imagen-actual" class="imagen-actual"></span>
+        </div>
+      </div>
+      <button class="btn" onclick="guardar()">Guardar</button>
+      <button class="btn btn-sec" onclick="cancelarEdicion()">Cancelar edición</button>
+    </section>
+
+    <!-- Lista de propiedades -->
+    <section>
+      <h2>Propiedades cargadas</h2>
+      <div id="lista" class="lista-admin"></div>
+    </section>
+  </main>
+
+  <script src="admin.js"></script>
+</body>
+</html>
