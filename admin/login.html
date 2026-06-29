@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión — Frenkel & Llopis</title>
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div class="container">
+      <h1>Panel de Administración</h1>
+      <p>Frenkel &amp; Llopis Propiedades</p>
+    </div>
+  </header>
+
+  <main class="container login-wrap">
+    <section class="panel login-panel">
+      <h2>Iniciar sesión</h2>
+
+      <div id="mensaje" class="mensaje"></div>
+
+      <form id="form-login">
+        <div class="form-grid">
+          <input type="email" id="email" placeholder="Email" autocomplete="username" required>
+          <input type="password" id="password" placeholder="Contraseña" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn">Ingresar</button>
+      </form>
+
+    </section>
+  </main>
+
+  <script src="login.js"></script>
+</body>
+</html>

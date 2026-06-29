@@ -1,4 +1,4 @@
-import * as Propiedad from '../models/propiedades.js'
+import * as Propiedad from '../models/propiedades.mjs'
 
 export async function obtenerTodas(req, res) {
     try {
@@ -20,8 +20,13 @@ export async function obtenerPorId(req, res) {
 
 export async function crear(req, res) {
     try {
-        const propiedad = await Propiedad.crear(req.body)
-        res.status(201).json(propiedad)
+        const propiedad = { ...req.body }
+        if (req.file) {
+            // Si se subió un archivo, usamos la ruta local
+            propiedad.image = 'imagenes/propiedades/' + req.file.filename
+        }
+        const nueva = await Propiedad.crear(propiedad)
+        res.status(201).json(nueva)
     } catch (error) {
         res.status(500).json({ error: 'Error al crear propiedad' })
     }
@@ -29,8 +34,12 @@ export async function crear(req, res) {
 
 export async function modificar(req, res) {
     try {
-        const propiedad = await Propiedad.modificar(req.params.id, req.body)
-        res.json(propiedad)
+        const propiedad = { ...req.body }
+        if (req.file) {
+            propiedad.image = 'imagenes/propiedades/' + req.file.filename
+        }
+        const actualizada = await Propiedad.modificar(req.params.id, propiedad)
+        res.json(actualizada)
     } catch (error) {
         res.status(500).json({ error: 'Error al modificar propiedad' })
     }

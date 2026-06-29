@@ -1,0 +1,116 @@
+/* ---------- Paleta (igual que el sitio público) ----------
+   #0d1828  azul marino    #15405a  azul petróleo
+   #c66821  naranja        #933b22  rojo ladrillo   #471320  bordó
+----------------------------------------------------------- */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  color: #1a1a1a;
+  line-height: 1.6;
+  background: #faf6ee;
+}
+
+.admin-header {
+  background: #0d1828;
+  border-bottom: 3px solid #c66821;
+  color: #fff;
+  padding: 1.2rem 1rem;
+}
+.admin-header .container { max-width: 1000px; margin: 0 auto; }
+.admin-header h1 { font-size: 1.4rem; }
+.admin-header p { font-size: 0.9rem; color: #c8d2dc; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+
+/* ---------- Login ---------- */
+.login-wrap { display: flex; justify-content: center; }
+.login-panel { max-width: 420px; width: 100%; margin-top: 2rem; }
+.login-panel .form-grid { grid-template-columns: 1fr; }
+.hint { margin-top: 1rem; font-size: 0.85rem; color: #471320; }
+
+/* ---------- Input de archivo ---------- */
+.file-input-wrap { display: flex; flex-direction: column; gap: 0.3rem; }
+.file-input-wrap label { font-size: 0.85rem; font-weight: 600; color: #0d1828; }
+.file-input-wrap input[type="file"] { font-size: 0.9rem; }
+.imagen-actual { font-size: 0.8rem; color: #471320; }
+
+.container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+main.container { padding-top: 2rem; padding-bottom: 3rem; }
+
+h2 { color: #0d1828; margin-bottom: 1rem; font-size: 1.2rem; }
+
+/* ---------- Formulario ---------- */
+.panel {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(13, 24, 40, 0.1);
+  border-left: 4px solid #933b22;
+  margin-bottom: 2.5rem;
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.2rem;
+}
+.form-grid input {
+  padding: 0.6rem;
+  border: 1px solid #15405a;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  background: #fdfaf4;
+  font-family: inherit;
+}
+.form-grid input:focus { outline: none; border-color: #933b22; }
+
+/* ---------- Botones ---------- */
+.btn {
+  display: inline-block;
+  background: #933b22;
+  color: #fff;
+  padding: 0.6rem 1.3rem;
+  border: none;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn:hover { background: #c66821; }
+.btn-sec { background: #15405a; }
+.btn-sec:hover { background: #0d1828; }
+.btn-danger { background: #471320; }
+.btn-danger:hover { background: #933b22; }
+.btn-sm { padding: 0.35rem 0.8rem; font-size: 0.85rem; }
+
+/* ---------- Mensajes al usuario ---------- */
+.mensaje {
+  padding: 0.8rem 1rem;
+  border-radius: 4px;
+  margin-bottom: 1.2rem;
+  font-weight: 500;
+  display: none;
+}
+.mensaje.ok    { display: block; background: #e3f1e6; color: #1e6b34; border-left: 4px solid #1e6b34; }
+.mensaje.error { display: block; background: #f7e3e3; color: #8a2020; border-left: 4px solid #8a2020; }
+
+/* ---------- Lista de propiedades (tarjetas) ---------- */
+.lista-admin { display: grid; gap: 1rem; }
+.item {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(13, 24, 40, 0.08);
+  border-top: 4px solid #15405a;
+  padding: 1rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.item-info h3 { color: #0d1828; font-size: 1.05rem; margin-bottom: 0.2rem; }
+.item-info .precio { color: #933b22; font-weight: 700; }
+.item-info .meta { font-size: 0.85rem; color: #471320; }
+.item-acciones { display: flex; gap: 0.5rem; }
