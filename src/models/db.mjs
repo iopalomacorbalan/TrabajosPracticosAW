@@ -3,8 +3,6 @@ import 'dotenv/config'
 
 const { Pool } = pg
 
-// Las credenciales se leen desde variables de entorno (.env), nunca se
-// escriben directamente en el código (ver requisito 4.5 del TP).
 const pool = new Pool({
     user: process.env.DB_USER,
     host: process.env.DB_HOST,

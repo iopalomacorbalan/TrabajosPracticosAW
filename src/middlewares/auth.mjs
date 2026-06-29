@@ -1,9 +1,6 @@
 import jwt from 'jsonwebtoken'
 import 'dotenv/config'
 
-// Middleware que protege rutas: exige un token JWT válido guardado en la cookie.
-// Si el token es válido, deja pasar y agrega los datos del usuario a req.usuario.
-// Si no, responde 401 (no autorizado) con un mensaje para el usuario.
 export function verificarToken(req, res, next) {
     const token = req.cookies?.token
 

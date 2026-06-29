@@ -2,16 +2,13 @@ import jwt from 'jsonwebtoken'
 import 'dotenv/config'
 import * as Usuario from '../models/usuarios.mjs'
 
-// Opciones de la cookie donde se guarda el token.
-// httpOnly => el JavaScript del navegador NO puede leerla (protege contra XSS).
 const opcionesCookie = {
     httpOnly: true,
-    sameSite: 'strict',         // la cookie no se envía en peticiones de otros sitios (protege contra CSRF)
-    secure: false,              // en producción (HTTPS) debería ser true
-    maxAge: 2 * 60 * 60 * 1000, // 2 horas, igual que el token
+    sameSite: 'strict',
+    secure: false,
+    maxAge: 2 * 60 * 60 * 1000,
 }
 
-// ---------- POST /api/auth/login ----------
 export async function login(req, res) {
     try {
         const { email, password } = req.body
@@ -43,14 +40,11 @@ export async function login(req, res) {
     }
 }
 
-// ---------- POST /api/auth/logout ----------
 export function logout(req, res) {
     res.clearCookie('token', opcionesCookie)
     res.json({ mensaje: 'Sesión cerrada' })
 }
 
-// ---------- GET /api/auth/perfil  (ruta protegida) ----------
-// Sirve para que el frontend sepa si hay una sesión activa
 export function perfil(req, res) {
     res.json({ usuario: req.usuario })
 }

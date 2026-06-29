@@ -1,11 +1,8 @@
 const API = '/api/propiedades'
 
-// Guarda el id de la propiedad que se está editando (null = estamos creando)
 let editandoId = null
-// Guarda la ruta de imagen actual al editar (por si no se sube una nueva)
 let imagenActual = ''
 
-// ---------- Control de sesión ----------
 async function verificarSesion() {
   try {
     const respuesta = await fetch('/api/auth/perfil')
@@ -24,10 +21,8 @@ async function cerrarSesion() {
   window.location.href = 'login.html'
 }
 
-// IDs de los campos de texto del formulario (imagen se maneja aparte)
 const CAMPOS_TEXTO = ['title', 'type', 'operation', 'price', 'address', 'bedrooms', 'bathrooms', 'size']
 
-// ---------- Helpers de interfaz ----------
 function mostrarMensaje(texto, tipo = 'ok') {
   const div = document.getElementById('mensaje')
   div.textContent = texto
@@ -49,7 +44,6 @@ function cancelarEdicion() {
   mostrarMensaje('Edición cancelada')
 }
 
-// Arma el FormData para enviar al servidor (soporta archivo + campos de texto)
 function armarFormData() {
   const fd = new FormData()
   CAMPOS_TEXTO.forEach(campo => {
@@ -63,16 +57,13 @@ function armarFormData() {
   })
   const fileInput = document.getElementById('image')
   if (fileInput.files[0]) {
-    // Se eligió una imagen nueva → la subimos
     fd.append('image', fileInput.files[0])
   } else if (imagenActual) {
-    // No se eligió nueva imagen → conservamos la que ya tiene
     fd.append('image', imagenActual)
   }
   return fd
 }
 
-// ---------- Cargar y mostrar todas las propiedades ----------
 async function cargarPropiedades() {
   try {
     const respuesta = await fetch(API)
@@ -105,7 +96,6 @@ async function cargarPropiedades() {
   }
 }
 
-// ---------- Guardar (crear o modificar) ----------
 async function guardar() {
   const titulo = document.getElementById('title').value
   const precio = document.getElementById('price').value
@@ -118,11 +108,9 @@ async function guardar() {
     const url = editandoId ? `${API}/${editandoId}` : API
     const metodo = editandoId ? 'PUT' : 'POST'
 
-    // Usamos FormData para poder enviar archivos junto con los campos de texto
     const respuesta = await fetch(url, {
       method: metodo,
       body: armarFormData()
-      // NO ponemos Content-Type: el browser lo pone solo con el boundary correcto para multipart
     })
 
     if (respuesta.status === 401) { window.location.href = 'login.html'; return }
@@ -136,7 +124,6 @@ async function guardar() {
   }
 }
 
-// ---------- Editar: carga los datos en el formulario ----------
 async function editar(id) {
   try {
     const respuesta = await fetch(`${API}/${id}`)
@@ -156,7 +143,6 @@ async function editar(id) {
   }
 }
 
-// ---------- Eliminar ----------
 async function eliminar(id) {
   if (!confirm('¿Seguro que querés eliminar esta propiedad?')) return
 
@@ -177,7 +163,6 @@ async function init() {
     await verificarSesion()
     cargarPropiedades()
   } catch {
-    // Sin sesión → verificarSesion() ya redirigió a login.html
   }
 }
 

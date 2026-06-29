@@ -1,13 +1,3 @@
-// ============================================================
-//  Script para (re)crear la base de datos desde cero.
-//  Uso:  npm run db:setup
-//
-//  1) Se conecta a la BD de mantenimiento "postgres".
-//  2) Crea la base de datos del proyecto si no existe.
-//  3) Ejecuta schema.sql (tablas + datos de ejemplo).
-//  4) Crea un usuario administrador con la contraseña HASHEADA.
-// ============================================================
-
 import pg from 'pg'
 import bcrypt from 'bcryptjs'
 import { readFileSync } from 'node:fs'
@@ -26,7 +16,6 @@ const conexionBase = {
     port: Number(process.env.DB_PORT),
 }
 
-// Usuario administrador por defecto (se puede cambiar)
 const ADMIN = {
     nombre: 'Administrador',
     email: 'admin@frenkel.com',
@@ -34,7 +23,6 @@ const ADMIN = {
 }
 
 async function main() {
-    // ---------- 1 y 2) Crear la base de datos si no existe ----------
     const clienteAdmin = new Client({ ...conexionBase, database: 'postgres' })
     await clienteAdmin.connect()
 
@@ -49,7 +37,6 @@ async function main() {
     }
     await clienteAdmin.end()
 
-    // ---------- 3) Ejecutar el schema (tablas + datos) ----------
     const cliente = new Client({ ...conexionBase, database: DB_NAME })
     await cliente.connect()
 
@@ -57,7 +44,6 @@ async function main() {
     await cliente.query(schema)
     console.log('✅ Tablas creadas y datos de ejemplo cargados.')
 
-    // ---------- 4) Crear el usuario admin con contraseña hasheada ----------
     const hash = await bcrypt.hash(ADMIN.password, 10)
     await cliente.query(
         'INSERT INTO usuarios (nombre, email, password) VALUES ($1, $2, $3)',
